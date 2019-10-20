@@ -56,7 +56,6 @@ class EventController extends Controller
      */
     public function update(Request $request, $id)
     {
-//
         $event = Event::find($id);
         if (!$event) {
             return response()->json(['message' => 'Event not found'], Response::HTTP_NOT_FOUND);

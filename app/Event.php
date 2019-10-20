@@ -15,4 +15,9 @@ class Event extends Model
         'created_at',
         'updated_at'
     ];
+
+    public function activities()
+    {
+        return $this->hasMany('App\Activity');
+    }
 }

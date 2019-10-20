@@ -19,3 +19,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::apiResource('events', 'API\EventController');
+
+
+Route::prefix('events/{event}/')->group(function () {
+    Route::post('activities', 'API\ActivityController@store');
+    Route::get('activities', 'API\ActivityController@index');
+    Route::get('activities/{activity}', 'API\ActivityController@show');
+    Route::put('activities/{activity}', 'API\ActivityController@update');
+    Route::delete('activities/{activity}', 'API\ActivityController@destroy');
+});
+
