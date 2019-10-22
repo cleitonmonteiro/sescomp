@@ -67,6 +67,7 @@
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
+                    <a href="{{ url('/about') }}">About</a>
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
                     @else
@@ -83,7 +84,6 @@
                 <div class="title m-b-md">
                     Laravel
                 </div>
-
                 <div class="links">
                     <a href="https://laravel.com/docs">Docs</a>
                     <a href="https://laracasts.com">Laracasts</a>

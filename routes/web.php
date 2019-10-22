@@ -11,6 +11,20 @@
 |
 */
 
-//Route::get('/', function () {
+Route::get('/', function () {
+    return redirect('home');
 //    return view('welcome');
-//});
+});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/info', 'InfoController@index')->name('info');
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/about', 'AboutController@index')->name('about');
+Route::get('/sub/{event}', "SubscriptionEventController@store")->name('sub');
+Route::get('/dashboard', 'DashboardController@index')->name('dashboard');

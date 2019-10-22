@@ -19,6 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::apiResource('events', 'API\EventController');
+Route::apiResource('users', 'API\UserController');
 
 
 Route::prefix('events/{event}/')->group(function () {
@@ -28,4 +29,6 @@ Route::prefix('events/{event}/')->group(function () {
     Route::put('activities/{activity}', 'API\ActivityController@update');
     Route::delete('activities/{activity}', 'API\ActivityController@destroy');
 });
+
+Route::get('sub/{event}/{user}', 'SubscriptionEventController@store');
 

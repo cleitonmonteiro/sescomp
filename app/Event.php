@@ -20,4 +20,9 @@ class Event extends Model
     {
         return $this->hasMany('App\Activity');
     }
+
+    public function users()
+    {
+        return $this->belongsToMany('App\User');
+    }
 }
