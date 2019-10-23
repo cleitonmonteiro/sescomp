@@ -20,11 +20,18 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/info', 'InfoController@index')->name('info');
-
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/about', 'AboutController@index')->name('about');
-Route::get('/sub/{event}', "SubscriptionEventController@store")->name('sub');
-Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+    Route::get('/act/{activity}', "SubscriptionActivityController@store")->name('actvitity.show'); // try use this patter to macro activities and "." individual activity
+});
+
+Route::group(['middleware' => ['auth'], 'prefix' => '/sub'], function () { // note the prefix in URL
+    Route::get('/{event}', "SubscriptionEventController@store")->name('sub');
+});
+
+
+
+
+

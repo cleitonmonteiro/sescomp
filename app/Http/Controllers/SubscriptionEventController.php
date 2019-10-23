@@ -8,10 +8,6 @@ use Illuminate\Support\Facades\Auth;
 
 class SubscriptionEventController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
 
     public function store($event_id)
     {
