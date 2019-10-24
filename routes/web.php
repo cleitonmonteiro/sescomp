@@ -28,14 +28,8 @@ Route::group(['middleware' => ['auth']], function () {
 });
 
 Route::group(['middleware' => ['auth'], 'prefix' => '/sub'], function () { // note the prefix in URL
-    Route::get('/{event}', "SubscriptionEventController@store")->name('sub');
+    // Route::get('/{event}', "SubscriptionEventController@store")->name('sub');
 });
-
-
-
-
-
-Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 

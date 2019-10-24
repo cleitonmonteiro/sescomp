@@ -38,11 +38,6 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function events()
-    {
-        return $this->belongsToMany('App\Event');
-    }
-
     public function activities()
     {
         return $this->belongsToMany('App\Activity');

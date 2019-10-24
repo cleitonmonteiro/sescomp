@@ -18,7 +18,7 @@
                 <a type="button" class="btn btn-success" href="#">Submeter atividade</a>
             </div>
             <div class="col-md-5 text-right">
-                <a type="button" class="btn btn-success" href="{{ route('sub', ['event' => 1]) }}">Inscreva-se</a>
+                <a type="button" class="btn btn-success" href="#">Inscreva-se</a>
             </div>
         </div>
     </div>
