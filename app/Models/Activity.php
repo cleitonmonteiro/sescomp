@@ -1,14 +1,14 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Event extends Model
+class Activity extends Model
 {
     protected $fillable = [
         'name',
-        'description'
+        'hours'
     ];
 
     protected $hidden = [
@@ -16,9 +16,9 @@ class Event extends Model
         'updated_at'
     ];
 
-    public function activities()
+    public function event()
     {
-        return $this->hasMany('App\Activity');
+        return $this->belongsTo('App\Event');
     }
 
     public function users()

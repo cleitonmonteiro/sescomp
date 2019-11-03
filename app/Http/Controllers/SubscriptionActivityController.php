@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 
-use App\Activity;
+use App\Models\Activity;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;

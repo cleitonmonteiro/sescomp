@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Event;
+use App\ModelsEvent;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
