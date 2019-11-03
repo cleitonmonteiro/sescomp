@@ -29,3 +29,8 @@ Route::group(['middleware' => ['auth']], function () {
 Route::group(['middleware' => ['auth'], 'prefix' => '/sub'], function () { // note the prefix in URL
     Route::get('/{event}', "SubscriptionEventController@store")->name('sub');
 });
+
+Route::group(['middleware' => ['auth'], 'prefix' => '/events'], function () {
+    Route::get('/', 'EventController@create')->name('events.create');
+    Route::post('/', 'EventController@store')->name('events.store');
+});

@@ -4,9 +4,19 @@ namespace App\Http\Controllers;
 
 use App\Models\Event;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class EventController extends Controller
 {
+    private function validator(array $data)
+    {
+        return Validator::make($data, [
+            'name' => ['required', 'string', 'max:255'],
+            'description' => ['required', 'string', 'max:255'],
+        ]);
+    }
+    
+    
     /**
      * Display a listing of the resource.
      *
@@ -23,7 +33,7 @@ class EventController extends Controller
      */
     public function create()
     {
-
+        return view('events.create');
     }
 
     /**
@@ -34,6 +44,18 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
+        $data = $request->all();
+        $validator = $this->validator($data);
+
+        if ($validator->fails()) {
+            return redirect()
+                        ->route('events.create')
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+        $event = new Event($data);
+        $event->save();
+        return redirect('dashboard');
     }
 
     /**
