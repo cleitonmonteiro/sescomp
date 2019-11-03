@@ -13,12 +13,11 @@ class DashboardController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($event_id)
+    public function index()
     {
-        $user = Auth::user();
-        $activities = $user->activities->where("event_id", $event_id);
-
-        return view('dashboard')->with(compact('activities'));
+        // $user = Auth::user();
+        // $activities = $user->activities->where("event_id", $event_id);
+        return view('dashboard'); // ->with(compact('activities'));
     }
 
     /**
