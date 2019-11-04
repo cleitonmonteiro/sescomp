@@ -6,7 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable
+class Admin extends Authenticatable
 {
     use Notifiable;
 
@@ -38,13 +38,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function events()
-    {
-        return $this->belongsToMany('App\Models\Event');
-    }
+    // public function events()
+    // {
+    //     return $this->belongsToMany('App\Event');
+    // }
 
-    public function activities()
-    {
-        return $this->belongsToMany('App\Models\Activity');
-    }
+    // public function activities()
+    // {
+    //     return $this->belongsToMany('App\Activity');
+    // }
 }
