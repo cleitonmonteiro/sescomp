@@ -21,7 +21,6 @@
 </head>
 <body>
     <div id="app">
-        {{-- Nav --}}
         @include('layouts.nav')
         <main class="py-4">
             @yield('content')
