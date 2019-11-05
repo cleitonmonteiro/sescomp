@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -40,9 +39,8 @@ class AdminLoginController extends Controller
         }
         
         return redirect()
-            ->route('admin.login')
-            // ->withErrors(['error' => 'auth', 'message' => 'LOL'])
-            ->withInput($request->only('email','remember'));
+            ->back()
+            ->withInputs($request->only('email','remember'));
     }    
 
     public function index() {

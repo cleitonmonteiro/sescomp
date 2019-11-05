@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Dashboard - Admin</div>
+                    <h1 class="card-header">Dashboard - Admin</h1>
                     <div class="card-body">
                     <a href="{{route('events.create')}}"> Novo evento </a>
                     </div>
