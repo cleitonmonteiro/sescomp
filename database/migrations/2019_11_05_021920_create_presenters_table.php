@@ -15,7 +15,6 @@ class CreatePresentersTable extends Migration
     {
         Schema::create('presenters', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->timestamps();
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();

@@ -65,6 +65,9 @@ class Handler extends ExceptionHandler
             case 'presenter':
                 $pag = "presenter.login";
                 break;
+            case 'supporter':
+                $pag = "supporter.login";
+                break;
             default:
                 $pag = "login";
                 break;

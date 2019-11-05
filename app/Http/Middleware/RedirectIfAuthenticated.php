@@ -23,6 +23,8 @@ class RedirectIfAuthenticated
                     return redirect()->route('admin.dashboard');
                 case'presenter':
                     return redirect()->route('presenter.dashboard');
+                case'supporter':
+                    return redirect()->route('supporter.dashboard');
                 default:
                     return redirect('/home');
             }

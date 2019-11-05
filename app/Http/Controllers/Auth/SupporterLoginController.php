@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 
-class PresenterLoginController extends Controller
+class SupporterLoginController extends Controller
 {
     private function validator(array $data)
     {
@@ -22,7 +22,7 @@ class PresenterLoginController extends Controller
 
         if ($validator->fails()) {
             return redirect()
-                        ->route('presenter.login')
+                        ->route('supporter.login')
                         ->withErrors($validator)
                         ->withInput();
         }
@@ -32,10 +32,10 @@ class PresenterLoginController extends Controller
             'password' => $request['password']
         ];
 
-        $authOk = Auth::guard('presenter')->attempt($credentials, $request->remember);
+        $authOk = Auth::guard('supporter')->attempt($credentials, $request->remember);
 
         if ($authOk) {
-            return redirect()->intended(route('presenter.dashboard'));
+            return redirect()->intended(route('supporter.dashboard'));
         }
         
         return redirect()
@@ -44,6 +44,6 @@ class PresenterLoginController extends Controller
     }    
 
     public function index() {
-        return view('auth.presenter.login');
+        return view('auth.supporter.login');
     }
 }

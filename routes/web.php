@@ -26,6 +26,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/act/{activity}', "SubscriptionActivityController@store")->name('actvitity.show'); // try use this patter to macro activities and "." individual activity
 });
 
+// rotas do usuario comum
+
 Route::group(['middleware' => ['auth'], 'prefix' => '/sub'], function () { // note the prefix in URL
     Route::get('/{event}', "SubscriptionEventController@store")->name('sub');
 });
@@ -35,9 +37,21 @@ Route::group(['middleware' => ['auth'], 'prefix' => '/events'], function () {
     Route::post('/', 'EventController@store')->name('events.store');
 });
 
+// rotas de supporter
+
+Route::group(['prefix' => 'supporter', 'middleware' => ['auth:supporter']], function () {
+    Route::get('/dashboard', 'SupporterController@index')->name('supporter.dashboard');
+});
+
+Route::group(['prefix' => 'supporter', 'middleware' => ['guest:supporter']], function () {
+    Route::get('/login', 'Auth\SupporterLoginController@index')->name('supporter.login');
+    Route::post('/login', 'Auth\SupporterLoginController@login')->name('supporter.login.submit');
+});
+
+
 // rotas de presenter
 
-Route::group(['prefix' => 'presenter'], function () {
+Route::group(['prefix' => 'presenter', 'middleware' => ['auth:presenter']], function () {
     Route::get('/dashboard', 'PresenterController@index')->name('presenter.dashboard');
 });
 
@@ -45,6 +59,7 @@ Route::group(['prefix' => 'presenter', 'middleware' => ['guest:presenter']], fun
     Route::get('/login', 'Auth\PresenterLoginController@index')->name('presenter.login');
     Route::post('/login', 'Auth\PresenterLoginController@login')->name('presenter.login.submit');
 });
+
 
 // rotas de admin
 Route::group(['prefix' => 'admin', 'middleware' => ['auth:admin']], function () {
