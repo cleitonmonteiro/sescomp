@@ -21,6 +21,8 @@ class RedirectIfAuthenticated
             switch($guard){
                 case'admin':
                     return redirect()->route('admin.dashboard');
+                case'presenter':
+                    return redirect()->route('presenter.dashboard');
                 default:
                     return redirect('/home');
             }
