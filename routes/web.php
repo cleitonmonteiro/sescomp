@@ -32,7 +32,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => '/sub'], function () { // no
     Route::get('/{event}', "SubscriptionEventController@store")->name('sub');
 });
 
-Route::group(['middleware' => ['auth'], 'prefix' => '/events'], function () {
+Route::group(['middleware' => ['auth:admin'], 'prefix' => '/events'], function () {
     Route::get('/', 'EventController@create')->name('events.create');
     Route::post('/', 'EventController@store')->name('events.store');
 });
