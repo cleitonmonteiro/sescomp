@@ -2,14 +2,15 @@
 
 namespace App;
 
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
 
-class Admin extends Authenticatable
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
+
+class Presenter extends Authenticatable
 {
     use Notifiable;
 
-    protected $guard = 'admin';
+    protected $guard = 'presenter';
     /**
      * The attributes that are mass assignable.
      *
@@ -37,14 +38,4 @@ class Admin extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
-    // public function events()
-    // {
-    //     return $this->belongsToMany('App\Event');
-    // }
-
-    // public function activities()
-    // {
-    //     return $this->belongsToMany('App\Activity');
-    // }
 }

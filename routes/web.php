@@ -35,6 +35,10 @@ Route::group(['middleware' => ['auth'], 'prefix' => '/events'], function () {
     Route::post('/', 'EventController@store')->name('events.store');
 });
 
+
+
+
+// rotas de admin
 Route::group(['middleware' => ['auth:admin']], function () {
     Route::get('/dashboard/admin', 'AdminController@index')->name('admin.dashboard');
 });
