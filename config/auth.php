@@ -46,6 +46,16 @@ return [
             'provider' => 'admins',
         ],
 
+        'presenter' => [
+            'driver' => 'session',
+            'provider' => 'presenters',
+        ],
+
+        'supporter' => [
+            'driver' => 'session',
+            'provider' => 'supporters',
+        ],
+
         'api' => [
             'driver' => 'token',
             'provider' => 'users',
@@ -80,6 +90,17 @@ return [
             'driver' => 'eloquent',
             'model' => App\Admin::class,
         ],
+
+        'presenters' => [
+            'driver' => 'eloquent',
+            'model' => App\Presenter::class,
+        ],
+
+        'supporters' => [
+            'driver' => 'eloquent',
+            'model' => App\Supporter::class,
+        ],
+
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
@@ -110,6 +131,18 @@ return [
 
         'admins' => [
             'provider' => 'admins',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+
+        'presenters' => [
+            'provider' => 'presenters',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+
+        'supporters' => [
+            'provider' => 'supporters',
             'table' => 'password_resets',
             'expire' => 60,
         ],

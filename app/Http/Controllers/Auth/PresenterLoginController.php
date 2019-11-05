@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 
-class AdminLoginController extends Controller
+class PresenterLoginController extends Controller
 {
     private function validator(array $data)
     {
@@ -22,7 +22,7 @@ class AdminLoginController extends Controller
 
         if ($validator->fails()) {
             return redirect()
-                        ->route('admin.login')
+                        ->route('presenter.login')
                         ->withErrors($validator)
                         ->withInput();
         }
@@ -32,10 +32,10 @@ class AdminLoginController extends Controller
             'password' => $request['password']
         ];
 
-        $authOk = Auth::guard('admin')->attempt($credentials, $request->remember);
+        $authOk = Auth::guard('presenter')->attempt($credentials, $request->remember);
 
         if ($authOk) {
-            return redirect()->intended(route('admin.dashboard'));
+            return redirect()->intended(route('presenter.dashboard'));
         }
         
         return redirect()
@@ -44,6 +44,6 @@ class AdminLoginController extends Controller
     }    
 
     public function index() {
-        return view('auth.admin.login');
+        return view('auth.presenter.login');
     }
 }

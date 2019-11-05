@@ -1,13 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container" style="background-color: #2277AA;">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <h1 class="card-header">Dashboard - Admin</h1>
+                    <h1 class="card-header">Dashboard - Presenter</h1>
                     <div class="card-body">
-                    <a href="{{route('events.create')}}"> Novo evento </a>
                     </div>
                 </div>
             </div>
