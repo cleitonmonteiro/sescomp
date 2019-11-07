@@ -11,4 +11,10 @@ class AdminController extends Controller
         $events = $ev::all();
         return view('admin.dashboard', compact('events'));
     }
+
+    public function supportRegister(Request $request) {
+        $data = $request->all();
+        
+        return redirect()->back();
+    }
 }

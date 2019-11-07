@@ -64,6 +64,7 @@ Route::group(['prefix' => 'presenter', 'middleware' => ['guest:presenter']], fun
 // rotas de admin
 Route::group(['prefix' => 'admin', 'middleware' => ['auth:admin']], function () {
     Route::get('/dashboard', 'AdminController@index')->name('admin.dashboard');
+    Route::post('/dashboard', 'AdminController@supportRegister')->name('admin.dashboard.supportregister');
 });
 
 
