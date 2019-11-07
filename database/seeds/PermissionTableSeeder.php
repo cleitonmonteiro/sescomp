@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
+use Spatie\Permission\Models\Permission;
 class PermissionTableSeeder extends Seeder
 {
     /**
@@ -22,5 +22,9 @@ class PermissionTableSeeder extends Seeder
             'verify-submitions',
             'launch-activities',
         ];
+
+        foreach ($permissions as $p) {
+            Permission::create(['name' => $p]);
+        }
     }
 }
