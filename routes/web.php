@@ -34,13 +34,3 @@ Route::group(['middleware' => ['auth'], 'prefix' => '/events'], function () {
     Route::get('/', 'EventController@create')->name('events.create');
     Route::post('/', 'EventController@store')->name('events.store');
 });
-
-Route::group(['middleware' => ['auth:admin']], function () {
-    Route::get('/dashboard/admin', 'AdminController@index')->name('admin.dashboard');
-});
-
-
-Route::group(['middleware' => ['guest:admin']], function () {
-    Route::get('/admin/login', 'Auth\AdminLoginController@index')->name('admin.login');
-    Route::post('/admin/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
-});
