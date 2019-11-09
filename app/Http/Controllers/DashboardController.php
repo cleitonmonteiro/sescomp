@@ -15,9 +15,10 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        // $user = Auth::user();
-        // $activities = $user->activities->where("event_id", $event_id);
-        return view('dashboard'); // ->with(compact('activities'));
+        $user = Auth::user();
+        $events = $user->events;
+        // dd()
+        return view('dashboard')->with(compact('events'));
     }
 
     /**
