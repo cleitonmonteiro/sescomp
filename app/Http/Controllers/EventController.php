@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
+use Carbon\Carbon;
+use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -66,7 +68,24 @@ class EventController extends Controller
      */
     public function show(Event $event)
     {
-        //
+        $init = $event->begin_date;
+        $init = Carbon::parse($init);
+        $init->second = 0;
+        $init->minute = 0;
+        
+        $activities = [];
+        
+        $init->hour = 8;
+        $activities[] = $event->activitiesHours($init);
+        $init->hour = 10;
+        $activities[] = $event->activitiesHours($init);
+        $init->hour = 13;
+        $init->minute = 30;
+        $activities[] = $event->activitiesHours($init);
+        $init->hour = 19;
+        $activities[] = $event->activitiesHours($init);
+        dd($activities);
+        return view('events.show')->with(compact('event', 'activities'));
     }
 
     /**

@@ -15,6 +15,12 @@
                             <input type="hidden" name="_id" value="{{$event->id}}">
                             <input type="submit" value="inscrever">
                         </form>
+
+                        <form action="{{route ('events.show', ['event' => $event->id])}}" method="get">
+                            @csrf
+                            <input type="submit" value="ver evento">
+                        </form>
+
                     </div> 
                 </div>
             </div>

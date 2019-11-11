@@ -34,6 +34,11 @@ Route::group(['middleware' => ['auth'], 'prefix' => '/events'], function () {
     Route::get('/', 'EventController@create')->name('events.create');
     Route::post('/', 'EventController@store')->name('events.store');
 });
+
+Route::group(['prefix' => '/events'], function () {
+    Route::get('/{event}', 'EventController@show')->name('events.show');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

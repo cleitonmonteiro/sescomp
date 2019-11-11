@@ -15,7 +15,10 @@ class DatabaseSeeder extends Seeder
             PermissionTableSeeder::class,
             CreateAdminUserSeeder::class,
             CreateSpeakerUserSeeder::class,
-            CreateSupportUserSeeder::class
+            CreateSupportUserSeeder::class,
+            EventTableSeeder::class,
+            ActivitiesTableSeeder::class,
+            UserEventTableSeeder::class
         ]);
     }
 }

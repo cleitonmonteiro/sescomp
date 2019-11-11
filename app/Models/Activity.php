@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use DateTime;
 use Illuminate\Database\Eloquent\Model;
 
 class Activity extends Model
@@ -25,4 +26,5 @@ class Activity extends Model
     {
         return $this->belongsToMany('App\Models\User');
     }
+
 }

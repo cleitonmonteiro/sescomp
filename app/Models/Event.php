@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use DateTime;
 use Illuminate\Database\Eloquent\Model;
 
 class Event extends Model
@@ -18,11 +19,21 @@ class Event extends Model
 
     public function activities()
     {
-        return $this->hasMany('App\Activity');
+        return $this->hasMany('App\Models\Activity');
     }
 
     public function users()
     {
         return $this->belongsToMany('App\User');
+    }
+
+    public function activitiesHours(DateTime $time)
+    {
+        $act = $this->activities()->where(
+            'begin_date','<=',$time
+        )->where(
+            'end_date','>=',$time
+        )->orderBy('begin_date','asc')->get();
+        return $act;
     }
 }

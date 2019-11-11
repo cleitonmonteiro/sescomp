@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
+use App\User;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 class CreateSupportUserSeeder extends Seeder
 {
     /**

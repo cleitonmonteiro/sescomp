@@ -11,6 +11,10 @@ class UserEventTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $eventUser = DB::table('event_user')->insert([
+            'event_id' => 1,
+            'user_id' => 1
+        ]);
+
     }
 }

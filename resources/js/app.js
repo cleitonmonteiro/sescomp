@@ -22,6 +22,7 @@ window.Vue = require('vue');
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('event-card', require('./components/EventCard.vue').default);
 Vue.component('event-card-home', require('./components/EventCardHome.vue').default);
+Vue.component('activities-carousel', require('./components/ActivitiesCarousel.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
