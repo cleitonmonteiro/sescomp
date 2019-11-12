@@ -18,8 +18,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::apiResource('events', 'API\EventController');
+Route::apiResource('events', 'API\EventControllerProxy');
 Route::apiResource('users', 'API\UserController');
+
+Route::post('/check', 'API\CheckControllerProxy@checkActivity');
 
 
 Route::prefix('events/{event}/')->group(function () {

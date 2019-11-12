@@ -9,7 +9,9 @@ class Activity extends Model
 {
     protected $fillable = [
         'name',
-        'hours'
+        'hours',
+        'begin_date',
+        'end_date'
     ];
 
     protected $hidden = [

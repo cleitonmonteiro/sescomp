@@ -9,7 +9,9 @@ class Event extends Model
 {
     protected $fillable = [
         'name',
-        'description'
+        'description',
+        'begin_date',
+        'end_date'
     ];
 
     protected $hidden = [

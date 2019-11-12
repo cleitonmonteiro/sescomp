@@ -17,6 +17,7 @@ class CreateActivityUserTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('activity_id');
             $table->unsignedBigInteger('user_id');
+            $table->boolean('checked')->default(false);
             $table->timestamps();
         });
     }

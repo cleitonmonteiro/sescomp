@@ -1,22 +1,24 @@
 <?php
 
 namespace App\Http\Controllers\API;
-
 use App\Models\Event;
+use App\Http\Controllers\API\EventController;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Validator;
 
-class EventController extends Controller
-{
+class EventControllerProxy extends Controller
+{   
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(EventController $eventController, Response $request)
     {
-        return response()->json(Event::all()) ;
+
+        return $eventController->index();
     }
 
     /**
@@ -25,11 +27,21 @@ class EventController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $data)
+    public function store(EventController $eventController, Request $request)
     {
-        $event = new Event($data->all());
-        $event->save();
-        return response()->json(['event'=> $event, 'message' => 'Successfully created event']);
+        $data = $request->all();
+
+        $validator = Validator::make($data, [
+            'name' => ['required', 'string', 'max:255'],
+            'description' => ['required', 'string', 'max:255'],
+            'begin_date' => ['required', 'date'],
+            'end_date' => ['required', 'date'],
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['error' => $validator->fails(), 'message' => 'Validator Error'])->setStatusCode(Response::HTTP_BAD_REQUEST);
+        }
+        return $eventController->store($request);
     }
 
     /**
