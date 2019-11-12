@@ -84,7 +84,6 @@ class EventController extends Controller
         $activities[] = $event->activitiesHours($init);
         $init->hour = 19;
         $activities[] = $event->activitiesHours($init);
-        dd($activities);
         return view('events.show')->with(compact('event', 'activities'));
     }
 

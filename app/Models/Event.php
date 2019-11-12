@@ -27,6 +27,12 @@ class Event extends Model
         return $this->belongsToMany('App\User');
     }
 
+
+    public function supporter()
+    {
+        return $this->belongsToMany('App\User', 'event_support');
+    }
+
     public function activitiesHours(DateTime $time)
     {
         $act = $this->activities()->where(

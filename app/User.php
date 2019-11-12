@@ -49,4 +49,9 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\Models\Activity');
     }
+
+    public function supported_events()
+    {
+        return $this->belongsToMany('App\Models\Event', 'event_support');
+    }
 }

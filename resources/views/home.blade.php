@@ -17,7 +17,6 @@
                         </form>
 
                         <form action="{{route ('events.show', ['event' => $event->id])}}" method="get">
-                            @csrf
                             <input type="submit" value="ver evento">
                         </form>
 

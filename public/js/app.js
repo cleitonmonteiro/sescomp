@@ -1863,6 +1863,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['activities'],
@@ -1877,6 +1880,11 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     this.activitiesJson = JSON.parse(this.activities);
+  },
+  methods: {
+    readNews: function readNews(id) {
+      return '/sub/activities' + '/' + id;
+    }
   }
 });
 
@@ -37336,6 +37344,14 @@ var render = function() {
                 "\n                    " +
                   _vm._s(item.hours) +
                   "\n                "
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", [
+              _c(
+                "a",
+                { attrs: { href: _vm.readNews(item.id), type: "submit" } },
+                [_vm._v("teste")]
               )
             ])
           ])

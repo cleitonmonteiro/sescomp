@@ -14,12 +14,17 @@
                             <div>
                                 <event-card name="{{$event->name}}" description="{{$event->description}}"/>
                             </div>    
+                            @can('choose-support')
+                                <a href="{{route('add.support', ['event' => $event->id])}}"> adicionar suporte </a>        
+                            @endcan
                         @empty
                             <h1>voce nao esta participando de nenhum evento</h1>
                         @endforelse
                         @can('create-event')
                             <a href="{{route('events.create')}}"> Novo evento </a>        
                         @endcan
+
+
                         
                     </div>
                 </div>

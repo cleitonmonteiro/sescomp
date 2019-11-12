@@ -14,6 +14,9 @@
                     <div class="row">
                         {{item.hours}}
                     </div>
+                    <div>
+                        <a :href="readNews(item.id)" type="submit">teste</a>
+                    </div>
                 </div>
             </div>
 
@@ -38,7 +41,14 @@ export default {
         },
     mounted(){
         this.activitiesJson = JSON.parse(this.activities);
+    },
+    methods: {
+        readNews(id){
+            return '/sub/activities' + '/' + id;
+        }
     }
+
+
 }
 
 </script>
