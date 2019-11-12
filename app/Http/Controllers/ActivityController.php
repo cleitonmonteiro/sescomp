@@ -84,4 +84,8 @@ class ActivityController extends Controller
     {
         //
     }
+
+    public function notAccept($event_id) {
+        return view('support.submissions');
+    }
 }

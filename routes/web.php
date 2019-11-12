@@ -18,7 +18,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/info', 'InfoController@index')->name('info');
 Route::get('/about', 'AboutController@index')->name('about');
 
 Route::group(['middleware' => ['auth']], function () {
@@ -30,6 +29,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/act/{activity}', "SubscriptionActivityController@store")->name('actvitity.show');
     Route::get('/support/{event}', 'SupportController@index')->name('add.support');
     Route::post('/support', 'SupportController@add')->name('add.support.store');
+
+    Route::get('/submissions/{event}', 'ActivityController@notAccept')->name('submissions');
     
 });
 

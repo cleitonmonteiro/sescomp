@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-body">
                     <div class="row">
-                        <event-card name="teste" description="terrterttkjh"></event-card>
+                        <event-card name="{{$event->name}}" description="{{$event->description}}"></event-card>
                         <a href="{{route('activities.create', ['event' => $event->id])}}">submeter atividade</a>
                     </div>
                     {{-- 8 --}}

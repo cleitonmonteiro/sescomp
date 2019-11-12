@@ -21,7 +21,7 @@ class CreateActivitiesTable extends Migration
             $table->foreign('event_id')->references('id')->on('events');
             $table->string('level');
             $table->string('description');
-            $table->string('abstract',5000);
+            $table->string('abstract', 5000);
             $table->boolean('accepted')->default(false);
             $table->dateTime('begin_date')->nullable(true);
             $table->dateTime('end_date')->nullable(true);
