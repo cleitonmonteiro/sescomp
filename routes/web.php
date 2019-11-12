@@ -23,19 +23,24 @@ Route::get('/about', 'AboutController@index')->name('about');
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+    Route::get('qr-code/', function () 
+    {
+        return QRCode::text(Auth::user()->email)->png();    
+    })->name('qrcode');
     Route::get('/act/{activity}', "SubscriptionActivityController@store")->name('actvitity.show');
     Route::get('/support/{event}', 'SupportController@index')->name('add.support');
     Route::post('/support', 'SupportController@add')->name('add.support.store');
     
 });
 
-Route::group(['middleware' => ['auth'], 'prefix' => '/sub'], function () { // note the prefix in URL
+Route::group(['middleware' => ['auth'], 'prefix' => '/sub'], function () {
     Route::post('/', "SubscriptionEventController@store")->name('sub');
     Route::get('/activities/{id}', "SubscriptionActivityController@store" )->name('activities.sub');
 });
 
-Route::group(['middleware' => ['auth'], 'prefix' => '/speaker'], function () { // note the prefix in URL
-    Route::get('/activities', "ActivityController@index" )->name('activities.index');
+Route::group(['middleware' => ['auth'], 'prefix' => '/speaker'], function () { 
+    Route::get('/activities/{event}', "ActivityController@create" )->name('activities.create');
+    Route::post('/activities', "ActivityController@store")-> name('activities.store');
 });
 
 
@@ -47,6 +52,8 @@ Route::group(['middleware' => ['auth'], 'prefix' => '/events'], function () {
 Route::group(['prefix' => '/events'], function () {
     Route::get('/{event}', 'EventController@show')->name('events.show');
 });
+
+
 
 Auth::routes();
 

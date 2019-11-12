@@ -19,8 +19,12 @@ class CreateActivitiesTable extends Migration
             $table->integer('hours');
             $table->unsignedBigInteger('event_id');
             $table->foreign('event_id')->references('id')->on('events');
-            $table->dateTime('begin_date');
-            $table->dateTime('end_date');
+            $table->string('level');
+            $table->string('description');
+            $table->string('abstract',5000);
+            $table->boolean('accepted')->default(false);
+            $table->dateTime('begin_date')->nullable(true);
+            $table->dateTime('end_date')->nullable(true);
             $table->timestamps();
         });
     }

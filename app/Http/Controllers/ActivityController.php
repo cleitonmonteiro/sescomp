@@ -14,7 +14,7 @@ class ActivityController extends Controller
      */
     public function index()
     {
-        return view('speaker.sub');
+        
     }
 
     /**
@@ -22,9 +22,9 @@ class ActivityController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create( $event )
     {
-        //
+        return view('speaker.sub', compact('event'));
     }
 
     /**
@@ -35,7 +35,9 @@ class ActivityController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $activity = new Activity($request->all());
+        $activity->save();
+        redirect('dashboard');
     }
 
     /**

@@ -13,9 +13,10 @@
                         @forelse ($events as $event)
                             <div>
                                 <event-card name="{{$event->name}}" description="{{$event->description}}"/>
-                            </div>    
+                                </div>    
+                                <a href="{{route('qrcode', ['email' => Auth::user()->email])}}">gerar cracha</a>
                             @can('choose-support')
-                                <a href="{{route('add.support', ['event' => $event->id])}}"> adicionar suporte </a>        
+                                <a href="{{route('add.support')}}"> adicionar suporte </a>        
                             @endcan
                         @empty
                             <h1>voce nao esta participando de nenhum evento</h1>

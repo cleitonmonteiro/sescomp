@@ -15,7 +15,7 @@
                         {{item.hours}}
                     </div>
                     <div>
-                        <a :href="readNews(item.id)" type="submit">teste</a>
+                        <a :href="readNews(item.id)" type="submit">Inscrever</a>
                     </div>
                 </div>
             </div>

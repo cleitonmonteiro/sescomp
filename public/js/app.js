@@ -37351,7 +37351,7 @@ var render = function() {
               _c(
                 "a",
                 { attrs: { href: _vm.readNews(item.id), type: "submit" } },
-                [_vm._v("teste")]
+                [_vm._v("Inscrever")]
               )
             ])
           ])

@@ -17,7 +17,6 @@ class DashboardController extends Controller
     {
         $user = Auth::user();
         $events = $user->events;
-        // dd()
         return view('dashboard')->with(compact('events'));
     }
 

@@ -10,8 +10,10 @@ class Activity extends Model
     protected $fillable = [
         'name',
         'hours',
-        'begin_date',
-        'end_date'
+        'description',
+        'level',
+        'abstract',
+        'event_id',
     ];
 
     protected $hidden = [

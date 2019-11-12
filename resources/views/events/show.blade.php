@@ -8,7 +8,7 @@
                 <div class="card-body">
                     <div class="row">
                         <event-card name="teste" description="terrterttkjh"></event-card>
-                        <a href="{{route('activities.index')}}">submeter atividade</a>
+                        <a href="{{route('activities.create', ['event' => $event->id])}}">submeter atividade</a>
                     </div>
                     {{-- 8 --}}
                     @if (count($activities[0]))

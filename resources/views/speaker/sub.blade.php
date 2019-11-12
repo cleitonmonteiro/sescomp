@@ -8,7 +8,7 @@
                 <div class="card-header">Nova atividade</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('events.store') }}">
+                    <form method="POST" action="{{ route('activities.store') }}">
                         @csrf
 
                         <div class="form-group row">
@@ -40,26 +40,34 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="resumo">Resumo</label>
-                            <textarea type="text" name="Resumo" id="Resumo" rows="5" cols="66"></textarea>
+                            <label for="abstract">Resumo</label>
+                            <textarea type="text" name="abstract" id="Resumo" rows="5" cols="66"></textarea>
+                            <h5>maximo 5000 letras</h5>
                         </div>
 
 
                         <div class="form-group row">
                             <div class="mx-auto">
-                                <select name="nivel">
-                                    <option value="facil">Facil</option>
-                                    <option value="intermediario">Intermediario</option>
-                                    <option value="dificil">Dificil</option>
+                                <select name="level">
+                                    <option selected="selected" value="Facil">Facil</option>
+                                    <option value="Intermediario">Intermediario</option>
+                                    <option value="Dificil">Dificil</option>
                                 </select>
 
+                                <select name="hours">
+                                    <option selected="selected" value="1">1 hora</option>
+                                    <option value="2">2 horas</option>
+                                    <option value="4">4 horas</option>
+                                </select>
                             </div>
                         </div>
+
+                        <input type="hidden" name="event_id" value="{{$event}}">
 
                         <div class="form-group row mb-0">
                             <div class="col-md offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Adicionar') }}
+                                    {{ __('submeter') }}
                                 </button>
                             </div>
                         </div>
